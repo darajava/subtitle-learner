@@ -25,7 +25,7 @@ router.post('/upload', function(req, res, next) {
       return console.log(err);
     }
 
-    var text = fs.readFileSync(filename, 'latin1')
+    var text = fs.readFileSync(filename, 'utf8')
     
     blankWords(text, req);
 
@@ -56,7 +56,7 @@ router.post('/upload', function(req, res, next) {
 
       for (var i = 0; i < levels.length; i++) {
         if (Math.round(levels[i]) === count) {
-          fs.writeFile(basedir + "level" + (i + 1) + '.' + req.files.file.name, text, (err) => {
+          fs.writeFile(basedir + "level" + (i + 1) + '.' + req.files.file.name, text, 'utf8', (err) => {
             if(err) {
               return console.log(err);
             }
