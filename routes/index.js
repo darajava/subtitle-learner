@@ -33,6 +33,7 @@ router.post('/upload', function(req, res, next) {
   });
 
   var blankWords = function(text, req) {
+    text = text.toString('utf8')
     var lineReader = require('readline').createInterface({
       input: require('fs').createReadStream(path.join(__dirname, '../public', 'wordlist'))
     });
