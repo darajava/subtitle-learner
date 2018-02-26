@@ -25,7 +25,7 @@ router.post('/upload', function(req, res, next) {
       return console.log(err);
     }
 
-    var text = fs.readFileSync(filename, 'utf16')
+    var text = fs.readFileSync(filename, 'latin1')
     
     blankWords(text, req);
 
